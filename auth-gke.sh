@@ -1,14 +1,18 @@
 #!/bin/bash
 set -euo pipefail
-cd "$(cd "$(dirname "$0")"; cd ..; pwd)"
 
-CRED=${GKE_JSON_KEY:-${GOOGLE_CREDENTIALS:-${TOKEN}}}
-KEY=/tmp/gcloud.json
+main() {
+  _trace gcloud container clusters get-credentials "$CLUSTER" --project "$PROJECT" --zone "$ZONE"
+}
 
-echo "$CRED" > "$KEY"
 
-gcloud auth activate-service-account --key-file "$KEY"
+# Display the underlying command
+_trace() {
+  cmd=($@)
+  echo "$ ${cmd[*]}"
+  "${cmd[@]}"
+}
 
-gcloud container clusters get-credentials "$CLUSTER" --project "$PROJECT" --zone "$ZONE"
+auth-gcloud
 
-rm "$KEY"
+main

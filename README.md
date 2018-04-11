@@ -14,3 +14,20 @@ docker run \
   -e CLUSTER=my-cluster \
   tonglil/auth-gke
 ```
+
+## Example
+
+Drone 0.5+:
+
+```yml
+pipeline:
+  image: tonglil/auth-gke
+  environment:
+    PROJECT: my-project
+    ZONE: us-central1-b
+    CLUSTER: my-cluster
+  commands:
+    - auth-gke
+    - kubectl ...
+  secret: [google_credentials]
+```

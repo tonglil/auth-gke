@@ -1,4 +1,4 @@
-FROM tonglil/auth-gcloud:171.0.0
+FROM tonglil/auth-gcloud
 
 ENV CLOUDSDK_CONTAINER_USE_APPLICATION_DEFAULT_CREDENTIALS=false
 

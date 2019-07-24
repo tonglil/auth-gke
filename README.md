@@ -10,7 +10,7 @@ Based on https://github.com/tonglil/auth-gcloud.
 docker run \
   -e TOKEN="$(cat service-account.json)" \
   -e PROJECT=my-project \
-  -e ZONE=us-central1-b \
+  -e LOCATION=us-central1-b \
   -e CLUSTER=my-cluster \
   tonglil/auth-gke
 ```
@@ -25,10 +25,14 @@ pipeline:
     image: tonglil/auth-gke
     environment:
       PROJECT: my-project
-      ZONE: us-central1-b
+      LOCATION: us-central1-b # zone or region
       CLUSTER: my-cluster
     commands:
       - auth-gke
       - kubectl ...
     secret: [google_credentials]
 ```
+
+## Changelog
+
+See release notes: https://github.com/tonglil/auth-gke/releases

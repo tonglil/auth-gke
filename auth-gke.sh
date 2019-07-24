@@ -2,7 +2,7 @@
 set -euo pipefail
 
 main() {
-  _trace gcloud container clusters get-credentials "$CLUSTER" --project "$PROJECT" --zone "$ZONE"
+  _trace gcloud container clusters get-credentials "$CLUSTER" --project "$PROJECT" --zone "${LOCATION:-$ZONE}"
 }
 
 

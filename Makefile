@@ -14,3 +14,11 @@ push:
 	bin/push
 
 docker: build push
+
+pull:
+	docker pull tonglil/auth-gcloud:latest
+	docker pull tonglil/auth-gcloud:slim
+	docker pull tonglil/auth-gcloud:alpine
+
+version:
+	docker run -it --rm --entrypoint=bash tonglil/auth-gcloud:alpine gcloud version

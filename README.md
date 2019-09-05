@@ -33,6 +33,15 @@ pipeline:
     secret: [google_credentials]
 ```
 
+## Releasing
+
+Use the base image's `gcloud` version number as the tag:
+
+```
+make pull
+make version
+```
+
 ## Changelog
 
 See release notes: https://github.com/tonglil/auth-gke/releases

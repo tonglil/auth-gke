@@ -30,7 +30,7 @@ pipeline:
     commands:
       - auth-gke
       - kubectl ...
-    secret: [google_credentials]
+    secrets: [google_credentials]
 ```
 
 ## Releasing

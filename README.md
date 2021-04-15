@@ -17,7 +17,7 @@ docker run \
 
 ## Example
 
-Drone 0.5+:
+### Drone 1+
 
 ```yml
 pipeline:
@@ -32,6 +32,27 @@ pipeline:
       - kubectl ...
     secrets: [google_credentials]
 ```
+
+### Drone 0.5+
+
+<details>
+  <summary>Expand</summary>
+
+```yml
+steps:
+- name: gke-actions
+  image: tonglil/auth-gke
+  environment:
+    PROJECT: my-project
+    LOCATION: us-central1-b # zone or region
+    CLUSTER: my-cluster
+    TOKEN:
+      from_secret: google_credentials
+  commands:
+    - auth-gke
+    - kubectl ...
+```
+</details>
 
 ## Releasing
 

@@ -1,6 +1,6 @@
 FROM tonglil/auth-gcloud:466.0.0-slim
 
-RUN apt-get install kubectl
+RUN apt-get update && apt-get install kubectl
 
 ENV CLOUDSDK_CONTAINER_USE_APPLICATION_DEFAULT_CREDENTIALS=false
 

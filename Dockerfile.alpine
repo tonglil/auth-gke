@@ -1,4 +1,4 @@
-FROM tonglil/auth-gcloud:466.0.0-alpine
+FROM tonglil/auth-gcloud:544.0.0-alpine
 
 RUN gcloud components install kubectl
 
